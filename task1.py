@@ -2,6 +2,9 @@ class Device:
     def __init__(self, category):
         self.category = category
 
+    def description(self):
+        print("it is a type of {}".format(self.category))
+
     def turn_on(self):
         print("The device is switched on.")
 
@@ -67,6 +70,7 @@ print()
 g = MeatGrinder("Kitchen Appliances", "Tefal", "2012", "2200 W")
 g.informations("Tefal", "2012", "2200 W")
 g.turn_off()
+g.description()
 
 
 
