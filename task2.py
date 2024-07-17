@@ -6,9 +6,6 @@ planets = ["Abafar", "Ahch-To", "Anaxes", "Bespin", "Cantonica", "Castilon", "Ca
            "Nevarro", "Ossus", "Pasaana", "Polis Massa", "Ryloth", "Saleucami", "Serenno", "Tatooine", "Umbara",
            "Utapau", "Wobani", "Yavin", "Zygerria"]
 
-start = random.choice(planets)
-end = random.choice(planets)
-
 
 class Ship:
     def __init__(self, name, type, length):
@@ -17,11 +14,14 @@ class Ship:
         self.length = length
 
     def takes_off(self):
+        global start
+        start = random.choice(planets)
         print("Starting from {}.".format(start))
 
     def landing(self):
+        end = random.choice(planets)
         if start == end:
-            print("Change of plans, returns to {}.".format(start))
+            print("Change of plans, returns to {}.".format(end))
         else:
             print("Landing on {}.".format(end))
 
@@ -67,7 +67,7 @@ print("-----")
 
 d = Destroyer("Supremacy", "Star Destroyer - Star Dreadnought", "13 240 m")
 d.info("Supremacy", "Star Destroyer - Star Dreadnought", "13 240 m", "60 543 m",
-"ion cannons, tractor beam projectors, 8 Resurgent-class Star Destroyers, TIE fighters")
+       "ion cannons, tractor beam projectors, 8 Resurgent-class Star Destroyers, TIE fighters")
 d.takes_off()
 d.landing()
 
@@ -75,9 +75,13 @@ print("-----")
 
 c = Cruiser("Resurgent", "Star Destroyer - Battlecruiser", "2 916 m")
 c.info("Resurgent", "Star Destroyer - Battlecruiser", "2 916 m",
-  "Carrier, Destroyer, Military transport, Command ship", "First Order, Final Order")
+       "Carrier, Destroyer, Military transport, Command ship", "First Order, Final Order")
 c.takes_off()
 c.landing()
+
+
+
+
 
 
 
