@@ -5,30 +5,53 @@ planets = ["Abafar", "Ahch-To", "Anaxes", "Bespin", "Cantonica", "Castilon", "Ca
            "Jedha", "Kamino", "Kashyyyk", "Kessel", "Malastare", "Mandalore", "Mapuzo", "Mon Cala", "Mustafar", "Naboo",
            "Nevarro", "Ossus", "Pasaana", "Polis Massa", "Ryloth", "Saleucami", "Serenno", "Tatooine", "Umbara",
            "Utapau", "Wobani", "Yavin", "Zygerria"]
+start = random.choice(planets)
+end = random.choice(planets)
+
 
 class Ship:
-    def __init__(self, type, length):
+    def __init__(self, name, type, length):
+        self.name = name
         self.type = type
         self.length = length
 
-    def starting(self):
-        pass
+    def takes_off(self):
+        print("Starting from {}.".format(start))
 
     def landing(self):
-        pass
-        # pokud stejné --> "change of plans, returns to ___"
+        if start == end:
+            print("Change of plans, returns to {}.".format(start))
+        else:
+            print("Landing on {}.".format(end))
 
 
 class Frigate(Ship):
-    pass
+    def __init__(self, name, type, length, passengers, equipment):
+        super().__init__(name, type, length)
+        self.passengers = passengers
+        self.equipment = equipment
 
+    def info(self, name, type, length, passengers, equipment):
+        print(f"Name: {name}, type: {type}, length: {length}, passengers: {passengers}, equipment: {equipment}")
 
 class Destroyer(Ship):
+    def __int__(self, name, type, length):
+        super().__init__(name, type, length)
     pass
 
 
 class Cruiser(Ship):
+    def __int__(self, name, type, length):
+        super().__init__(name, type, length)
     pass
+
+
+f = Frigate("Nebulon-B", "escort frigate", "300 m", "700 (medical patients)",
+            "bacta tanks, medical droids, hospital")
+f.info("Nebulon-B", "escort frigate", "300 m", "700 (medical patients)",
+       "bacta tanks, medical droids, hospital")
+f.takes_off()
+f.landing()
 
 
 # random name- Cruiser, Destroyer, Frigate
