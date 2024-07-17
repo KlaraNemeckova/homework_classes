@@ -5,6 +5,7 @@ planets = ["Abafar", "Ahch-To", "Anaxes", "Bespin", "Cantonica", "Castilon", "Ca
            "Jedha", "Kamino", "Kashyyyk", "Kessel", "Malastare", "Mandalore", "Mapuzo", "Mon Cala", "Mustafar", "Naboo",
            "Nevarro", "Ossus", "Pasaana", "Polis Massa", "Ryloth", "Saleucami", "Serenno", "Tatooine", "Umbara",
            "Utapau", "Wobani", "Yavin", "Zygerria"]
+
 start = random.choice(planets)
 end = random.choice(planets)
 
@@ -34,16 +35,25 @@ class Frigate(Ship):
     def info(self, name, type, length, passengers, equipment):
         print(f"Name: {name}, type: {type}, length: {length}, passengers: {passengers}, equipment: {equipment}")
 
+
 class Destroyer(Ship):
-    def __int__(self, name, type, length):
+    def __int__(self, name, type, length, width, armament):
         super().__init__(name, type, length)
-    pass
+        self.width = width
+        self.armament = armament
+
+    def info(self, name, type, length, width, armament):
+        print(f"Name: {name}, type: {type}, length: {length}, width: {width}, armament: {armament}")
 
 
 class Cruiser(Ship):
-    def __int__(self, name, type, length):
+    def __int__(self, name, type, length, roles, affiliation):
         super().__init__(name, type, length)
-    pass
+        self.roles = roles
+        self.affiliation = affiliation
+
+    def info(self, name, type, length, roles, affiliation):
+        print(f"Name: {name}, type: {type}, length: {length},  roles: {roles}, affiliation: {affiliation}")
 
 
 f = Frigate("Nebulon-B", "escort frigate", "300 m", "700 (medical patients)",
@@ -53,6 +63,22 @@ f.info("Nebulon-B", "escort frigate", "300 m", "700 (medical patients)",
 f.takes_off()
 f.landing()
 
+print("-----")
 
-# random name- Cruiser, Destroyer, Frigate
-# přidat další lodě
+d = Destroyer("Supremacy", "Star Destroyer - Star Dreadnought", "13 240 m")
+d.info("Supremacy", "Star Destroyer - Star Dreadnought", "13 240 m", "60 543 m",
+"ion cannons, tractor beam projectors, 8 Resurgent-class Star Destroyers, TIE fighters")
+d.takes_off()
+d.landing()
+
+print("-----")
+
+c = Cruiser("Resurgent", "Star Destroyer - Battlecruiser", "2 916 m")
+c.info("Resurgent", "Star Destroyer - Battlecruiser", "2 916 m",
+  "Carrier, Destroyer, Military transport, Command ship", "First Order, Final Order")
+c.takes_off()
+c.landing()
+
+
+
+
